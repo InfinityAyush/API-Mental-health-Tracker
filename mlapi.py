@@ -35,13 +35,13 @@ async def scoring_endpoint(item:scorningItem):
     df = pd.DataFrame([item.dict().values()],columns=item.dict().keys())
     df = MinMaxScaler().fit_transform(df)
     yhat = model.predict(df)
-    if yhat == 1:
-        yhat = "you're good"
-    elif yhat == 2:
-         yhat = "Little bit streed"
-    elif yhat == 3:
-        yhat = "Sad"
-    else:
-         yhat = "You're deppresed"
+    # if yhat == 1:
+    #     yhat = "you're good"
+    # elif yhat == 2:
+    #      yhat = "Little bit streed"
+    # elif yhat == 3:
+    #     yhat = "Sad"
+    # else:
+    #      yhat = "You're deppresed"
 
     return {"Prediction": yhat}
