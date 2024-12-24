@@ -3,7 +3,6 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import pickle
 import pandas as pd
-from sklearn.preprocessing import MinMaxScaler
 
 app= FastAPI()
 
@@ -33,15 +32,14 @@ with open(filename, 'rb') as file: # 'rb' stands for "read binary"
 @app.post('/')
 async def scoring_endpoint(item:scorningItem):
     df = pd.DataFrame([item.dict().values()],columns=item.dict().keys())
-    df = MinMaxScaler().fit_transform(df)
     yhat = model.predict(df)
-    # if yhat == 1:
-    #     yhat = "you're good"
-    # elif yhat == 2:
-    #      yhat = "Little bit streed"
-    # elif yhat == 3:
-    #     yhat = "Sad"
-    # else:
-    #      yhat = "You're deppresed"
-
+    if yhat == 1:
+        yhat = "you're good"
+    elif yhat == 2:
+         yhat = "Little bit streed"
+    elif yhat == 3:
+        yhat = "Sad"
+    else:
+         yhat = "You're deppresed"
+    
     return {"Prediction": yhat}
