@@ -11,7 +11,7 @@ Q8A: 	I found it difficult to relax.
 Q9A: 	I found myself in situations that made me so anxious I was most relieved when they ended.
 Q10A:	I felt that I had nothing to look forward to.
 Q11A:	I found myself getting upset rather easily.
-Q12A:	I felt that I was using a lot of nervous energy. 
+Q12A:	I felt that I was using a lot of nervous energy.
 
 ## Input Format : 
 1 = Did not apply to me at all 
